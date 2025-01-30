@@ -1,0 +1,125 @@
+package arquitetura.view;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
+import arquitetura.controller.CtrlTransacao;
+import arquitetura.model.Transacao;
+
+public class TelaCadastroTransacao extends JFrame {
+    
+    private static final long serialVersionUID = 1L;
+	private JLabel lbDescricao;
+    private JTextField tfDescricao;
+    private JLabel lbValor;
+    private JTextField tfValor;
+    private JButton btSalvar;
+    private JButton btEditar;
+    private JButton btExcluir;
+    
+    public TelaCadastroTransacao() {
+        // Implementar a tela de cadastro de transação
+    }
+    
+    @SuppressWarnings("unused")
+	private void initComponents() {
+        // Inicializar componentes da tela
+    }
+    
+    @SuppressWarnings("unused")
+	private void addListeners() {
+        // Adicionar listeners aos botões
+    }
+    
+    @SuppressWarnings("unused")
+	private void registrarTransacao() {
+        // Obter dados da transação
+        String descricao = tfDescricao.getText();
+        double valor = Double.parseDouble(tfValor.getText());
+        Transacao transacao = new Transacao(descricao, valor);
+        
+        // Registrar transação
+        if (CtrlTransacao.editarTransacao(transacao)) {
+            JOptionPane.showMessageDialog(this, "Transação registrada com sucesso.");
+            dispose();
+        } else {
+            JOptionPane.showMessageDialog(this, "Erro ao registrar transação.");
+        }
+    }
+    
+    @SuppressWarnings("unused")
+	private void editarTransacao() {
+        // Obter dados da transação
+        String descricao = tfDescricao.getText();
+        double valor = Double.parseDouble(tfValor.getText());
+        Transacao transacao = new Transacao(descricao, valor);
+        
+        // Editar transação
+        if (CtrlTransacao.editarTransacao(transacao)) {
+            JOptionPane.showMessageDialog(this, "Transação editada com sucesso.");
+            dispose();
+        } else {
+            JOptionPane.showMessageDialog(this, "Erro ao editar transação.");
+        }
+    }
+    
+    @SuppressWarnings("unused")
+	private void excluirTransacao() {
+        // Obter dados da transação
+        String descricao = tfDescricao.getText();
+        double valor = Double.parseDouble(tfValor.getText());
+        Transacao transacao = new Transacao(descricao, valor);
+        
+        // Excluir transação
+        if (CtrlTransacao.excluirTransacao(transacao)) {
+            JOptionPane.showMessageDialog(this, "Transação excluída com sucesso.");
+            dispose();
+        } else {
+            JOptionPane.showMessageDialog(this, "Erro ao excluir transação.");
+        }
+    }
+
+	public JLabel getLbDescricao() {
+		return lbDescricao;
+	}
+
+	public void setLbDescricao(JLabel lbDescricao) {
+		this.lbDescricao = lbDescricao;
+	}
+
+	public JLabel getLbValor() {
+		return lbValor;
+	}
+
+	public void setLbValor(JLabel lbValor) {
+		this.lbValor = lbValor;
+	}
+
+	public JButton getBtSalvar() {
+		return btSalvar;
+	}
+
+	public void setBtSalvar(JButton btSalvar) {
+		this.btSalvar = btSalvar;
+	}
+
+	public JButton getBtEditar() {
+		return btEditar;
+	}
+
+	public void setBtEditar(JButton btEditar) {
+		this.btEditar = btEditar;
+	}
+
+	public JButton getBtExcluir() {
+		return btExcluir;
+	}
+
+	public void setBtExcluir(JButton btExcluir) {
+		this.btExcluir = btExcluir;
+	}
+    
+}
